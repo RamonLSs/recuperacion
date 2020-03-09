@@ -1,0 +1,16 @@
+{
+    "name": "sorasx/recuperacion",
+    "authors": [
+        {
+            "name": "RamonLSs",
+            "email": "33682861+RamonLSs@users.noreply.github.com"
+        }
+    ],
+    "description": "PDO de recuperacion",
+    
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": {"Classes\\": "clases/"}
+       }
+    }
