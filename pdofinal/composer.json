@@ -1,0 +1,17 @@
+{
+    "name": "ramon/pdorecuperacion",
+    "description": "recuperacion pdo",
+    "license": "free",
+    "authors": [
+        {
+            "name": "Ramon Lopez",
+            "email": "ramoncillo1409@gmail.com"
+        }
+    ],
+   "autoload": {
+        "psr-4":{
+            "PDOFINAL\\": "class/"
+        }
+            
+   }
+}
