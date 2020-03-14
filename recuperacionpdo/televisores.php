@@ -24,7 +24,7 @@ if(isset($_SESSION['contador']))
 else 
 { 
   $_SESSION['contador'] = 1; 
-  $mensaje = 'Bienvenido a nuestra página web'; 
+  $mensaje = 'Bienvenido, has entrado por primera vez'; 
 } 
 
 
@@ -76,6 +76,7 @@ else
             <table class="table table-striped table-dark">
                 <thead>
                     <tr>
+                        <th scope=col>Ver</th>
                         <th scope="col">ID</th>
                         <th scope="col">Tipo</th>
                         <th scope="col">Pulgadas</th>
@@ -96,10 +97,10 @@ else
                         $llave=$miConexion->getLlave();
                         $losTelevisores=new Televisores($llave);
                        
-                        //-------------
-                        $paginacion=4; //cantidad de registros por pagina
-                        $total=$losTelevisores->getTotalRegistros(); //total registros
-                        $npaginas=ceil($total/$paginacion);//total de paginas
+                       
+                        $paginacion=4; 
+                        $total=$losTelevisores->getTotalRegistros(); 
+                        $npaginas=ceil($total/$paginacion);
                         if(isset($_GET['pag'])){
                             $inf=($_GET['pag']-1)*$paginacion;
                             $televisores=$losTelevisores->read($inf,$paginacion); 
@@ -111,6 +112,7 @@ else
                         
                         foreach($televisores as $item){
                             echo "<tr>";
+                            echo "<td><a href='vtelevisor.php?id={$item[0]}' class='btn btn-secondary'</a>Ver Televisor</td>";
                             echo "<td>{$item[0]}</td>";
                             echo "<td>{$item[1]}</td>";
                             echo "<td>{$item[2]}</td>";
@@ -148,9 +150,7 @@ else
                     }
                 }
             ?>
-            <form action="bcookie.php" name='bc' method="POST">
-                <input type="submit" value="Borrar Cookies" class="btn btn-warning">
-            </form>
+            
         </div>
     </body>
 </html>

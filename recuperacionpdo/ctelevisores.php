@@ -1,6 +1,6 @@
 <?php
 session_start();
-//si no soy admin NO puedo entrar
+
 if (!isset($_SESSION['usuario'])) {
     header('Location:index.php');
     die();

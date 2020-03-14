@@ -11,11 +11,11 @@
         header('Location:login.php');
         die();
     }
-    //atques csrf
+ 
     if (!(isset($_SESSION['token']) && isset($_POST['token'])) || $_SESSION['token'] != $_POST['token']) {
         fmensaje("Error de Token !! Ataque CSRF detectado!!!");
     }
-    //Recogemos todo del formulario
+  
     $email=trim($_POST['email']);
     $pass=trim($_POST['pass']);
     if(strlen($email)==0 || strlen($pass)==0){
@@ -31,11 +31,11 @@
         $llave=null;
     }
     else{
-        // $_SESSION['perfil']=$resultado[1];
+      
         $_SESSION['email']=$resultado['email'];
         $_SESSION['pass']=$resultado['pass'];
         
-        // $_SESSION['nombre']=$nombre;
+       
         $llave=null;
         header('Location:index.php');
     }    
